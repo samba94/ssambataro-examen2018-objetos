@@ -1,0 +1,61 @@
+import examen.*
+
+test "costo de cerveza clasica con lupulo local y levadura alta" {
+	var clasica = new Clasica()
+	clasica.tipoLupulo("local")
+	clasica.tipoLevadura("alta")
+	assert.equals(880, clasica.costo())
+	}
+	
+test "costo de cerveza clasica con lupulo importado y levadura baja"{
+	var clasica = new Clasica()
+	clasica.tipoLupulo("importado")
+	clasica.tipoLevadura("baja")
+	assert.equals(1000, clasica.costo())
+	}
+
+test "costo de cerveza lager con lupulo importado y sin ingredientes, levadura baja"{
+	var lager = new Lager()
+	lager.tipoLupulo("importado")
+	lager.tipoLevadura("baja")
+	lager.ingredientes([])
+	assert.equals(1000, lager.costo())
+}
+
+test "costo de cerveza lager con lupulo importado y 3 ingredientes, levadura baja"{
+	var lager = new Lager()
+	lager.tipoLupulo("importado")
+	lager.tipoLevadura("baja")
+	lager.ingredientes(["a", "b", "c"])
+	assert.equals(1150, lager.costo())
+}
+
+test "costo de cerveza porter con lupulo importado y proveedor a 20km, levadura baja"{
+	var porter = new Porter()
+	porter.tipoLupulo("importado")
+	porter.tipoLevadura("baja")
+	porter.kmProveedor(20)
+	assert.equals(1400, porter.costo())
+}
+
+test "costo de cerveza porter con lupulo local y proveedor a 2km, levadura baja"{
+	var porter = new Porter()
+	porter.tipoLupulo("local")
+	porter.tipoLevadura("baja")
+	porter.kmProveedor(2)
+	assert.equals(832, porter.costo())
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
